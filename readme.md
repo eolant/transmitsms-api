@@ -2,7 +2,7 @@
 
 Provides an implementation for the TransmitSMS-API as used by BurstSMS (burstsms.com.au)
 
-Original class was developed by BurstSMS and this is just a package of their class and is not an official module it is something I packaged up to make it easier for using their system.  
+Original class was developed by BurstSMS and this is just a package of their class and is not an official module it is something I packaged up to make it easier for using their system in Laravel 4.  
 
 ##  Documentation
 
