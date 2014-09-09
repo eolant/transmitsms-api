@@ -1,0 +1,23 @@
+{
+    "name": "abreeden/transmitsms-api",
+    "description": "Provides support for SMS providers using the TransmitSMS backend and pacakges the existing PHP class file as a composer package",
+    "authors": [
+        {
+            "name": "Ashley Breeden",
+            "email": "ash@url.net.au"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Abreeden\\TransmitsmsApi\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
