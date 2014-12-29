@@ -48,7 +48,7 @@ class TransmitsmsApi
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 			curl_setopt($ch, CURLOPT_USERAGENT, "transmitsmsAPI v.2");
 			curl_setopt($ch, CURLOPT_PORT, $port);
-			curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+			curl_setopt($ch, CURLOPT_SSLVERSION, 6);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 			curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
