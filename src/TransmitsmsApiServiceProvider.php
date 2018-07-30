@@ -21,13 +21,8 @@ class TransmitsmsApiServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->publishes([
-            __DIR__.'/config/config.php' => config_path('transmitsmsapi.php'),
+            __DIR__.'/config/config.php' => app()->basePath() . '/config/transmitsmsapi.php',
         ], 'config');
-
-        $this->app['Abreeden\TransmitSmsApi\TransmitSmsApi'] = function ($app) {
-            return $app['transmitsmsapi'];
-        };
-
 	}
 
 	/**
@@ -39,12 +34,14 @@ class TransmitsmsApiServiceProvider extends ServiceProvider {
 	{
         $this->mergeConfigFrom(__DIR__.'/config/config.php', 'transmitsmsapi');
 
-        $this->app['transmitsmsapi'] = $this->app->share(function($app)
-        {
-            $config = $app['config']->get('transmitsmsapi');
+        $this->app->singleton('transmitsmsapi', function ($app) {
+        	$config = $app['config']->get('transmitsmsapi');
 
             return new TransmitsmsApi($config['api_key'], $config['secret']);
-        });
+    	});
 
+    	$this->app->bind('Abreeden\TransmitsmsApi\TransmitsmsApi', function ($app) {
+            return $app->make('transmitsmsapi');
+    	});
 	}
 }
