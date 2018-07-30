@@ -32,8 +32,12 @@ To send a message you will require an account with a provider using the Transmit
 
 Without facade:
 
-    $sms = new \Abreeden\TransmitsmsApi\TransmitsmsApi("API_KEY", "SECRET");
-    $result = $sms->sendSms("Message goes here", "Destination Number", "From");
+	use Abreeden\TransmitsmsApi\TransmitsmsApi;
+
+	// Inject into action
+	public function index(Request $request, TransmitsmsApi $sms) {
+		$result = $sms->sendSms("Message goes here", "Destination Number");
+	}
     
 With facade:
 	
